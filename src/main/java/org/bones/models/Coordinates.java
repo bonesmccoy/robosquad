@@ -2,7 +2,9 @@ package org.bones.models;
 
 import java.util.Hashtable;
 
-public class Coordinates extends Hashtable<String, Hashtable> {
+public class Coordinates extends Hashtable<String, Hashtable<String, String>> {
+	
+	private static final long serialVersionUID  = 7526472295622776147L;
 	
 	public Coordinates() {
 		Hashtable<String, String> nDir = new Hashtable<String,String>();
@@ -33,6 +35,8 @@ public class Coordinates extends Hashtable<String, Hashtable> {
 	
 	public String getDirection(String currentDirection, String rotation) {
 		
+		Hashtable<String, String> direction =  this.get(currentDirection);
+		return direction.get(rotation).toString();
 	}
 
 }

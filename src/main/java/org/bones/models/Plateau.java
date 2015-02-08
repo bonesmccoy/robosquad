@@ -1,12 +1,10 @@
 package org.bones.models;
 
-import java.util.Hashtable;
-import java.util.List;
-
 public class Plateau {
 	
 	Integer xCorner;
 	Integer yCorner;
+	Coordinates coords;
 	
 	
 	public static Plateau createFromString(String command)
@@ -18,6 +16,8 @@ public class Plateau {
 	public Plateau(Integer xCorner, Integer yCorner) {
 		this.xCorner = xCorner;
 		this.yCorner = yCorner;
+		this.coords = new Coordinates();
+		
 	}
 	
 	public boolean isValidLocation(Integer x, Integer y) {
@@ -31,6 +31,11 @@ public class Plateau {
 	public boolean isValidY(Integer y) {
 		return (y >=0 && y <= yCorner);
 	}
+
+	public Coordinates getCoords() {
+		return coords;
+	}
+
 	
 	
 

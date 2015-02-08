@@ -7,7 +7,6 @@ public class Robot {
 	Integer yCoord;
 	Plateau plateau;
 	
-	
 	public Robot(Integer xCoord, Integer yCoord, String direction, Plateau plateau) {
 		this.xCoord = xCoord;
 		this.yCoord = yCoord;
@@ -22,24 +21,42 @@ public class Robot {
 	public static Robot createFromCommand(String command, Plateau plateau) {
 		
 		String[] coords = command.split(" ");
-		return new Robot(Integer.parseInt(coords[0]), Integer.parseInt(coords[1]), coords[3], plateau);
+		return new Robot(Integer.parseInt(coords[0]), Integer.parseInt(coords[1]), coords[2], plateau);
 	}
 	
-	public void move(String command) {
-		char[] cmd = command.toCharArray();
+	public void processCommands(String command) {
+		char[] cmds = command.toCharArray();
 		
-	}
-	
-	public void rotate(String direction) {
-		
-		String newDirection = this.direction;
-		switch(this.direction) {
-		case 'N': {
-			if (direction == "L")  { newDirection = "W"; }
-			else if (direction == "R") {newDirection = "E";}
+		for(char cmd : cmds) {
+			if (cmd == 'M') {
+				move();
+			} else if (cmd == 'L'|| cmd == 'R') {
+				rotate(String.valueOf(cmd));
+			}
 		}
-		break
-			
+		
+	}
+	
+	public void rotate(String rotation) {
+		this.direction = this.plateau.getCoords().getDirection(this.direction, rotation);
+	}
+	
+	public void move() {
+		
+		if (direction == "N" && plateau.isValidY(yCoord + 1)) {
+				yCoord++;
+				return;
+		}
+		if (direction == "E"  && this.plateau.isValidX(xCoord + 1)) {
+				xCoord++;
+				return;
+		}
+		if (direction == "S" && plateau.isValidY(yCoord - 1)) {
+				yCoord--;
+				return;
+		}
+		if (direction == "W" && plateau.isValidX(xCoord - 1)) {
+				xCoord--;		
 		}
 	}
 	
