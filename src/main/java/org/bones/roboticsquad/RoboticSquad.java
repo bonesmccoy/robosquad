@@ -47,10 +47,23 @@ public class RoboticSquad {
 		
 		plateau = Plateau.createFromString(this.commands.get(0));
 		this.commands.remove(0);
-		Integer iteration = 0;
-		Integer robotIndex = 0;
 		
-		for(String line : commands) {
+		Integer robotIndex = 0;
+		Integer i;
+		for (i = 0; i < this.commands.size(); i++) {
+			try {
+				String robDefinition = this.commands.get(i);
+				String robCommand = this.commands.get(++i);
+				Robot rob = Robot.createFromCommand(robDefinition, plateau);
+				rob.processCommands(robCommand);
+				System.out.println(rob.getPosition());
+				this.robots.put(robotIndex++, rob);
+			} catch(Exception e) {
+				
+			}
+		}
+		//Integer iteration = 0;
+		/*for(String line : commands) {
 			if ((iteration % 2) == 1) {
 				Robot rob = robots.get(robotIndex);
 				rob.processCommands(line);
@@ -61,7 +74,7 @@ public class RoboticSquad {
 				this.robots.put(robotIndex, rob);
 			}
 			iteration++;
-		}
+		}*/
 	}
 
 	public List<String> getCommands() {
