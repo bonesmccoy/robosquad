@@ -43,19 +43,19 @@ public class Robot {
 	
 	public void move() {
 		
-		if (direction == "N" && plateau.isValidY(yCoord + 1)) {
+		if (direction.contentEquals("N") && plateau.isValidY(yCoord + 1)) {
 				yCoord++;
 				return;
 		}
-		if (direction == "E"  && this.plateau.isValidX(xCoord + 1)) {
+		if (direction.contentEquals("E")  && plateau.isValidX(xCoord + 1)) {
 				xCoord++;
 				return;
 		}
-		if (direction == "S" && plateau.isValidY(yCoord - 1)) {
+		if (direction.contentEquals("S") && plateau.isValidY(yCoord - 1)) {
 				yCoord--;
 				return;
 		}
-		if (direction == "W" && plateau.isValidX(xCoord - 1)) {
+		if (direction.contentEquals("W") && plateau.isValidX(xCoord - 1)) {
 				xCoord--;		
 		}
 	}
