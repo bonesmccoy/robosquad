@@ -1,6 +1,4 @@
-package org.bones.roboticsquad;
-
-import org.bones.models.Robot;
+package org.bones.roboticsquad.main;
 
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -9,7 +7,8 @@ import java.nio.file.Paths;
 import java.util.Hashtable;
 import java.util.List;
 
-import org.bones.models.Plateau;
+import org.bones.models.roboticsquad.model.Plateau;
+import org.bones.models.roboticsquad.model.Robot;
 
 public class RoboticSquad {
 	

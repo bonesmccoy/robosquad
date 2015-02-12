@@ -1,4 +1,4 @@
-package org.bones.models;
+package org.bones.models.roboticsquad.model;
 
 public class Robot {
 	
