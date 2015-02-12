@@ -38,6 +38,17 @@ public class Robot {
 	}
 	
 	public void rotate(String rotation) {
+		Integer rotationValue = 0;
+		switch(rotation) {
+			case "R": {
+				rotationValue = 1;
+			}
+			break;
+			case "L": {
+				rotationValue = -1;
+			}
+			break;
+		}
 		this.direction = this.plateau.getCoords().getDirection(this.direction, rotation);
 	}
 	
