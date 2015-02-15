@@ -7,8 +7,8 @@ import java.nio.file.Paths;
 import java.util.Hashtable;
 import java.util.List;
 
-import org.bones.models.roboticsquad.model.Plateau;
-import org.bones.models.roboticsquad.model.Robot;
+import org.bones.roboticsquad.model.Plateau;
+import org.bones.roboticsquad.model.Robot;
 
 public class RoboticSquad {
 	
@@ -61,19 +61,7 @@ public class RoboticSquad {
 				
 			}
 		}
-		//Integer iteration = 0;
-		/*for(String line : commands) {
-			if ((iteration % 2) == 1) {
-				Robot rob = robots.get(robotIndex);
-				rob.processCommands(line);
-				System.out.println(rob.getPosition());
-			} else {
-				Robot rob = Robot.createFromCommand(line, plateau);
-				robotIndex++;
-				this.robots.put(robotIndex, rob);
-			}
-			iteration++;
-		}*/
+		
 	}
 
 	public List<String> getCommands() {

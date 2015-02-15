@@ -1,4 +1,4 @@
-package org.bones.models.roboticsquad.model;
+package org.bones.roboticsquad.model;
 
 import java.util.Hashtable;
 
