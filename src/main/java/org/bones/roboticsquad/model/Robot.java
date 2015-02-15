@@ -1,5 +1,8 @@
 package org.bones.roboticsquad.model;
 
+import java.util.ArrayList;
+import java.util.Hashtable;
+
 public class Robot {
 	
 	String direction;
