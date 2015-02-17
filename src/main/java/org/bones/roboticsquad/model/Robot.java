@@ -3,12 +3,13 @@ package org.bones.roboticsquad.model;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-public class Robot {
+public class Robot implements Runnable {
 	
 	String direction;
 	Integer xCoord;
 	Integer yCoord;
 	Plateau plateau;
+	String instructionList;
 	
 	public Robot(Integer xCoord, Integer yCoord, String direction, Plateau plateau) {
 		this.xCoord = xCoord;
@@ -27,8 +28,16 @@ public class Robot {
 		return new Robot(Integer.parseInt(coords[0]), Integer.parseInt(coords[1]), coords[2], plateau);
 	}
 	
-	public void processCommands(String command) {
-		char[] cmds = command.toCharArray();
+	
+	public void run() {
+		
+		processInstructionList();
+		System.out.println(this.getPosition());
+	}
+	
+	public void processInstructionList() {
+		
+		char[] cmds = this.instructionList.toCharArray();
 		
 		for(char cmd : cmds) {
 			if (cmd == 'M') {
@@ -37,8 +46,8 @@ public class Robot {
 				rotate(String.valueOf(cmd));
 			}
 		}
-		
 	}
+	
 	
 	public void rotate(String rotation) {
 		this.direction = this.plateau.getCoords().getDirection(this.direction, rotation);
@@ -62,6 +71,13 @@ public class Robot {
 				xCoord--;		
 		}
 	}
+
+
+	public void setInstructionList(String instructionList) {
+		this.instructionList = instructionList;
+	}
+	
+	
 	
 
 	

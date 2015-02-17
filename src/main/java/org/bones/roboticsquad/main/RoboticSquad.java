@@ -52,10 +52,10 @@ public class RoboticSquad {
 		for (i = 0; i < this.commands.size(); i++) {
 			try {
 				String robDefinition = this.commands.get(i);
-				String robCommand = this.commands.get(++i);
+				String instructionList = this.commands.get(++i);
 				Robot rob = Robot.createFromCommand(robDefinition, plateau);
-				rob.processCommands(robCommand);
-				System.out.println(rob.getPosition());
+				rob.setInstructionList(instructionList);
+	     		(new Thread(rob)).start();
 				this.robots.put(robotIndex++, rob);
 			} catch(Exception e) {
 				

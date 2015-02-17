@@ -26,8 +26,10 @@ public class RobotTest {
 		Plateau plateau = new Plateau(10, 10);
 		Robot rob = new Robot(2, 2, "E", plateau);
 		
-		String command = "MMLM";
-		rob.processCommands(command);
+		String instructionList = "MMLM";
+		
+		rob.setInstructionList(instructionList);
+		rob.processInstructionList();
 		
 		Assert.assertTrue(rob.getPosition().equals("4 3 N"));
 	}
@@ -39,8 +41,9 @@ public class RobotTest {
 		Plateau plateau = new Plateau(10, 10);
 		Robot rob = new Robot(3, 3, "E", plateau);
 		
-		String command = "MMMM";
-		rob.processCommands(command);
+		String instructionList = "MMMM";
+		rob.setInstructionList(instructionList);
+		rob.processInstructionList();
 		
 		Assert.assertTrue(rob.getPosition().equals("7 3 E"));
 	}
@@ -52,23 +55,27 @@ public class RobotTest {
 		Plateau plateau = new Plateau(10, 10);
 		Robot rob = new Robot(3, 3, "E", plateau);
 		
-		rob.processCommands("L");
+		rob.setInstructionList("L");
+		rob.processInstructionList();
 		Assert.assertTrue(rob.getPosition().equals("3 3 N"));
 		
-		rob.processCommands("L");
+		rob.processInstructionList();
 		Assert.assertTrue(rob.getPosition().equals("3 3 W"));
 		
-		rob.processCommands("L");
+		rob.processInstructionList();
 		Assert.assertTrue(rob.getPosition().equals("3 3 S"));
 		
 		
-		rob.processCommands("RR");
+		rob.setInstructionList("RR");
+		rob.processInstructionList();
 		Assert.assertTrue(rob.getPosition().equals("3 3 N"));
 		
-		rob.processCommands("R");
+		rob.setInstructionList("R");
+		rob.processInstructionList();
 		Assert.assertTrue(rob.getPosition().equals("3 3 E"));
 		
-		rob.processCommands("R");
+		rob.setInstructionList("R");
+		rob.processInstructionList();
 		Assert.assertTrue(rob.getPosition().equals("3 3 S"));
 		
 	}
